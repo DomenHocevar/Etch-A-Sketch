@@ -1,6 +1,6 @@
 
 
-
+const rainbowColors = ["red", "orage", "yellow", "green", "blue", "indigo", "violet"];
 
 function mapSizeSubmission(params) {
     const textInput = document.querySelector("#mapSizeInput");
@@ -18,10 +18,23 @@ function getChosenColor() {
     return colorInput.value;
 }
 
+function getRainbowColor(params) {
+    return rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
+}
+
 function colorBlock() {
     if (this.classList.contains("colored")) return;
     this.classList.add("colored");
-    this.style.backgroundColor = getChosenColor();
+    let color;
+    const rainbowInput = document.querySelector("#rainbowInput");
+    if (rainbowInput.checked)
+    {
+        color = getRainbowColor();
+    } else
+    {
+        color = getChosenColor();
+    }
+    this.style.backgroundColor = color;
 }
 
 function mapInit(size) {
@@ -50,5 +63,20 @@ function mapInit(size) {
 }
 
 
+function something() {
+    console.log(typeof this.checked);
+}
+
+/*
+const colorInput = document.querySelector("#colorInput");
+const rainbowInput = document.querySelector("#rainbowInput");
+colorInput.addEventListener("click", rainbowInput.value = )
+*/
+
 
 mapInit(10);
+const colorInput = document.querySelector("#colorInput");
+const rainbowInput = document.querySelector("#rainbowInput");
+colorInput.addEventListener("click", function(){
+    rainbowInput.checked = false
+});
