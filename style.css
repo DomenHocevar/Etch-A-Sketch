@@ -31,6 +31,11 @@ input[type=checkbox]
     border: 1px dashed grey;
 }
 
+.colored
+{
+    border: transparent;
+}
+
 #inputs
 {
     display: flex;

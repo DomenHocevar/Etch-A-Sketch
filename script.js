@@ -13,6 +13,16 @@ function mapSizeSubmission(params) {
     mapInit(value);
 }
 
+function getChosenColor() {
+    const colorInput = document.querySelector("#colorInput");
+    return colorInput.value;
+}
+
+function colorBlock() {
+    if (this.classList.contains("colored")) return;
+    this.classList.add("colored");
+    this.style.backgroundColor = getChosenColor();
+}
 
 function mapInit(size) {
     const map = document.querySelector("#map");
@@ -31,6 +41,12 @@ function mapInit(size) {
             map.appendChild(block);
         }
     }
+
+    const blocks = document.querySelectorAll(".block");
+    blocks.forEach(block => 
+    {
+        block.addEventListener("mouseover", colorBlock);
+    })
 }
 
 
